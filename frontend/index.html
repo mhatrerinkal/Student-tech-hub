@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Tech Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Optional modern Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <span class="brand-icon">🚀</span>
+        <div>
+          <h1 class="brand-title">Student Tech Hub</h1>
+          <p class="brand-subtitle">Your gateway to tech workshops, hackathons, and developer communities</p>
+        </div>
+      </div>
+      <div class="backend-status-pill" id="backend-status" title="Checks connection to FastAPI backend">
+        <span class="status-dot"></span>
+        <span class="status-text">Checking Backend...</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="main-container">
+    
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <div class="hero-content">
+        <h2>Learn, Build, and Connect with Fellow Student Developers</h2>
+        <p>
+          Discover beginner-friendly workshops, connect with industry mentors, and participate in campus hackathons.
+          Fetch real-time event schedules from our FastAPI backend and register with your student email!
+        </p>
+      </div>
+    </section>
+
+    <!-- Content Grid: Events (Left/Main) & Registration Form (Right/Sidebar) -->
+    <div class="content-grid">
+
+      <!-- LEFT COLUMN: Upcoming Events -->
+      <section class="events-section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">📅 Upcoming Technical Events</h2>
+            <p class="section-description">Browse through upcoming campus sessions and workshops.</p>
+          </div>
+          <button id="load-events-btn" class="btn btn-primary">
+            <span class="btn-icon">⚡</span>
+            <span class="btn-text">Load Events</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Events Container -->
+        <div id="events-container" class="events-grid">
+          <!-- Initial Empty/Placeholder State -->
+          <div class="placeholder-card" id="events-placeholder">
+            <div class="placeholder-icon">📡</div>
+            <h3>Ready to fetch events?</h3>
+            <p>Click the <strong>"Load Events"</strong> button above to retrieve the latest technical workshops from the FastAPI backend.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: Registration Form -->
+      <aside class="sidebar-section">
+        <div class="card form-card">
+          <div class="form-header">
+            <div class="form-badge">Join Us</div>
+            <h2 class="form-title">Student Registration</h2>
+            <p class="form-description">
+              Sign up with your details to receive calendar invites, slides, and access passes to upcoming events.
+            </p>
+          </div>
+
+          <!-- Alert / Feedback Message Container -->
+          <div id="feedback-alert" class="alert hidden" role="alert"></div>
+
+          <!-- Registration Form -->
+          <form id="registration-form" novalidate>
+            <div class="form-group">
+              <label for="student-name" class="form-label">Full Name <span class="required">*</span></label>
+              <input 
+                type="text" 
+                id="student-name" 
+                name="name" 
+                class="form-input" 
+                placeholder="e.g. Alex Rivera" 
+                required
+                autocomplete="name"
+              >
+              <small class="form-helper">Enter your first and last name.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="student-email" class="form-label">Student Email <span class="required">*</span></label>
+              <input 
+                type="email" 
+                id="student-email" 
+                name="email" 
+                class="form-input" 
+                placeholder="e.g. alex@university.edu" 
+                required
+                autocomplete="email"
+              >
+              <small class="form-helper">We will send event confirmation to this address.</small>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn btn-success btn-block">
+              <span class="btn-icon">✍️</span>
+              <span class="btn-text">Register Now</span>
+            </button>
+          </form>
+
+          <div class="form-footer-note">
+            🔒 Simple demo registration. No passwords or sensitive info required.
+          </div>
+        </div>
+
+        <!-- Quick Info Box -->
+        <div class="card info-card">
+          <h3>💡 How This Works</h3>
+          <ul class="info-list">
+            <li><strong>Frontend:</strong> Pure HTML, CSS, and Vanilla JavaScript.</li>
+            <li><strong>Backend:</strong> Python with FastAPI running on <code>http://127.0.0.1:8000</code>.</li>
+            <li><strong>Communication:</strong> Uses the browser <code>fetch()</code> API to send and receive JSON data.</li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>© 2026 Student Tech Hub • Built with plain HTML, CSS, JavaScript, and FastAPI.</p>
+    </div>
+  </footer>
+
+  <!-- Frontend Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
